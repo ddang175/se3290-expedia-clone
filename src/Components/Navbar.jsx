@@ -1,127 +1,73 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout_user } from '../Redux/Authantication/auth.action';
+import { isAdmin } from '../Redux/Authantication/auth.session';
 import {
-    Box,
-    Flex,
-    Text,
-    IconButton,
-    Button,
-    Stack,
-    Collapse,
-    Icon,
-    Link,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    useColorModeValue,
-    useBreakpointValue,
-    useDisclosure,
-    Image,
-    useColorMode
-  } from '@chakra-ui/react';
-  import {
-    HamburgerIcon,
-    CloseIcon,
-    ChevronDownIcon,
-    ChevronRightIcon,
-    MoonIcon, SunIcon
-  } from '@chakra-ui/icons';
+  Box, Flex, Text, Button, IconButton, Stack, Collapse, Icon, Link,
+  Popover, PopoverTrigger, PopoverContent, useColorModeValue,
+  useDisclosure, Image, useColorMode, useToast,
+} from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { BsGlobe2, BsBuildingFillCheck } from 'react-icons/bs';
+import { IoIosNotifications } from 'react-icons/io';
+import { HiOutlineChevronDown } from 'react-icons/hi';
+import { MdOutlineFlight } from 'react-icons/md';
+import { AiFillCar } from 'react-icons/ai';
+import { Link as RouterLink } from 'react-router-dom';
 
-  import {BsGlobe2,BsBuildingFillCheck} from 'react-icons/bs'
-  import {IoIosNotifications} from 'react-icons/io'
-  import {HiOutlineChevronDown} from 'react-icons/hi'
-  import {MdOutlineFlight} from 'react-icons/md'
-  import {AiFillCar} from 'react-icons/ai'
-  import {Link as RouterLink} from 'react-router-dom'
-  
-  export default function Navbar() {
-    const { isOpen, onToggle } = useDisclosure();
-    const { colorMode, toggleColorMode } = useColorMode();
-    const myColor = useColorModeValue('light','dark')
-  
-    return (
-    
-     <Box>
-        <Flex
-          bg={useColorModeValue('white', 'gray.800')}
-          color={useColorModeValue('gray.600', 'white')}
-          minH={'60px'}
-          justifyContent={'space-between'}
-          py={{ base: 2, }}
-          px={{ base: 4 }}
-          pr={{sm:'80px'}}
-          borderBottom={1}
-          borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.900')}
-          align={'center'}>
-          <Flex
-            flex={{ base: 1, md: 'auto' }}
-            ml={{ base: -2 }}
-            display={{ base: 'flex', md: 'none' }}>
-          </Flex>
+export default function Navbar() {
+  const dispatch = useDispatch();
+  const { isAuth, activeUser } = useSelector((store) => store.LoginReducer);
+  const [signingOut, setSigningOut] = useState(false);
+  const toast = useToast();
+  const { isOpen, onToggle } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
+  const background = useColorModeValue('white', 'gray.800');
+  const foreground = useColorModeValue('gray.600', 'white');
+  const borderColor = useColorModeValue('gray.200', 'gray.900');
+
+  const handleLogout = async () => {
+    setSigningOut(true);
+    try {
+      await dispatch(logout_user);
+    } catch (error) {
+      toast({ title: 'Could not finish signing out', description: error.message, status: 'error', isClosable: true });
+    } finally {
+      setSigningOut(false);
+    }
+  };
+
+  return (
+    <Box bg={background} color={foreground} borderBottom="1px solid" borderColor={borderColor}>
+      <Flex minH="64px" align="center" justify="space-between" px={{ base: 4, md: 8 }} py={3} gap={4} wrap="wrap">
+        <Flex align="center" gap={4}>
           <RouterLink to="/">
-          <Flex flex={{ base: 100 }} justify={{ base: 'space-between', md: 'start' }}>
-            <Image src={myColor=='light'?'https://i.postimg.cc/QxksRNkQ/expedio-Logo.jpg':'https://i.postimg.cc/fRx4D7QH/logo3.png'}  alt='logo' width={{base:'350px',sm:'18%'}} />
-  
-            <Flex display={{ base: 'none', md: 'flex' }} ml={6}>
-              <DesktopNav />
-            </Flex>
-        
-          </Flex>
+            <Image src={colorMode === 'light' ? 'https://i.postimg.cc/QxksRNkQ/expedio-Logo.jpg' : 'https://i.postimg.cc/fRx4D7QH/logo3.png'} alt="Expedia home" w={{ base: '130px', md: '160px' }} h="44px" objectFit="contain" />
           </RouterLink>
-  
-          <Stack
-            flex={{ base: 1, sm: 0 }}
-            justify={'flex-end'}
-            direction={'row'}
-            spacing={{base:3,sm:6}}>
-
-            
-            <Box fontWeight={'500'} fontSize={{base:'12px',sm:'16px'}} display={'flex'} >
-                <Icon mt={1} mr={1}  as={BsGlobe2} />
-                English
-            </Box> 
-            
-            
-            
-            <Box fontWeight={'500'} fontSize={{base:'12px',sm:'16px'}} display={'flex'} >
-                Support
-            </Box>
-
-            <Box fontWeight={'500'} fontSize={{base:'12px',sm:'16px'}} display={'flex'} >
-                Trip
-            </Box>
-
-            <Box fontWeight={'500'} fontSize={{base:'16px',sm:'23px'}}  display={'flex'} >
-                <Icon mt={0.5} mr={1}   as={IoIosNotifications} />
-            </Box>
-             <RouterLink to="/login">
-            <Box fontWeight={'500'}  fontSize={{base:'12px',sm:'16px'}}  mr={9} >
-                SignIn
-            </Box>
-            </RouterLink>
-            <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            </Button>
-
-
-            
-          </Stack>
+          <Box display={{ base: 'none', lg: 'block' }}><DesktopNav /></Box>
+          <IconButton aria-label="Toggle travel menu" onClick={onToggle} icon={isOpen ? <CloseIcon /> : <HamburgerIcon />} size="sm" display={{ base: 'inline-flex', lg: 'none' }} />
         </Flex>
-  
-        <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
-        </Collapse>
-      </Box>
-    
-      
-   
-      
-    );
-  }
-  
+        <Flex align="center" justify={{ base: 'flex-start', md: 'flex-end' }} gap={{ base: 3, md: 5 }} wrap="wrap" flex={{ base: '1 1 100%', md: '0 1 auto' }} fontWeight="500" fontSize={{ base: '14px', md: '16px' }}>
+          <Box display={{ base: 'none', xl: 'flex' }} alignItems="center"><Icon mr={1} as={BsGlobe2} />English</Box>
+          <Box display={{ base: 'none', xl: 'block' }}>Support</Box>
+          {isAuth && <Link as={RouterLink} to="/trips" whiteSpace="nowrap">Trips</Link>}
+          {isAuth && isAdmin(activeUser) && <Link as={RouterLink} to="/admin" whiteSpace="nowrap">Admin</Link>}
+          <Icon display={{ base: 'none', lg: 'block' }} fontSize="23px" as={IoIosNotifications} />
+          {isAuth ? <>
+            <Text maxW={{ base: '140px', md: '180px' }} noOfLines={1} title={activeUser.user_name}>{activeUser.user_name || 'My account'}</Text>
+            <Button onClick={handleLogout} isLoading={signingOut} variant="outline" size="sm" minW="88px" whiteSpace="nowrap">Sign out</Button>
+          </> : <Button as={RouterLink} to="/login" variant="ghost" size="sm" minW="88px" whiteSpace="nowrap">Sign in</Button>}
+          <IconButton aria-label={colorMode === 'light' ? 'Use dark mode' : 'Use light mode'} onClick={toggleColorMode} icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} size="sm" />
+        </Flex>
+      </Flex>
+      <Collapse in={isOpen} animateOpacity><MobileNav /></Collapse>
+    </Box>
+  );
+}
+
   const DesktopNav = () => {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
     const linkHoverColor = useColorModeValue('gray.800', 'white');
-    const popoverContentBgColor = useColorModeValue('white', 'gray.800');
   
     return (
       <Stack direction={'row'} spacing={4}>
@@ -152,7 +98,6 @@ import {
                   
                   border={0}
                   boxShadow={'xl'}
-                  // bg={popoverContentBgColor}
                   bg={'white'}
                   zIndex={5}
                   p={4}
@@ -212,7 +157,7 @@ import {
       <Stack
         bg={useColorModeValue('white', 'gray.800')}
         p={4}
-        display={{ md: 'none' }}>
+        display={{ lg: 'none' }}>
         {NAV_ITEMS.map((navItem) => (
           <MobileNavItem key={navItem.label} {...navItem} />
         ))}

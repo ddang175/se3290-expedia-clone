@@ -1,87 +1,17 @@
-import React from "react";
-import { useSearchParams } from "react-router-dom";
-import { fetchingHotels } from "../../Redux/StayReducer/action";
-import { useDispatch } from "react-redux";
 import PriceSlider from "./PriceSlider";
-
-export const Sidebar = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [order,setOrder] = React.useState("asc");
-  const [sort,setSort] = React.useState("");
-  const dispatch = useDispatch();
-
-const handlePriceChange = (e) => {
-  const selectedOrder = e.target.value;
-  const selectedSort = "price";
-  setOrder(selectedOrder);
-  setSort(selectedSort);
-};
- 
-  const handleRatingChange = (e) => {
-    // setOrder(e.target.value);
-    const selectedOrder = e.target.value;
-    const selectedSort = "rating";
-    setOrder(selectedOrder);
-    setSort(selectedSort);
-  };
-
-  React.useEffect(() => {
-    let params = {};
-    sort && (params["_sort"] = sort);
-    order && (params["_order"] = order);
-    setSearchParams(params);
-
-    dispatch(fetchingHotels(sort, order,));
-  }, [sort, order]);
-
-  return (
-    <div>
-      <h3>Filter By Price</h3>
-      <div onChange={handlePriceChange} >
-        <input
-          type="radio"
-          name="price"
-          value={"asc"}
-         
-        />
-        <label>Low to High</label>
-        <br />
-        <input
-          type="radio"
-          name="price"
-          value={"desc"}
-          
-        />
-        <label>High to Low</label>
-      </div>
-      <br />
-      <br />
-      <h3>Filter By Rating</h3>
-      <div onChange={handleRatingChange}>
-        <input
-          type="radio"
-          name="rating"
-          value={"asc"}
-         
-        />
-        <label>Low to High</label>
-        <br />
-        <input
-          type="radio"
-          name="rating"
-          value={"desc"}
-          
-        />
-        <label>High to Low</label>
-      </div>
-      <br/>
-      <br/>
-      <br/>
-      <div>
-        <PriceSlider />
-      </div>
-    </div>
-  );
-};
-
-export default Sidebar;
+export default function Sidebar({ filters, onChange }) {
+  return <aside aria-label="Hotel filters">
+    <h3 style={{ fontWeight: "bold", marginBottom: 16 }}>Sort & Filter</h3>
+    <label htmlFor="hotel-sort">Sort hotels</label>
+    <select id="hotel-sort" value={filters.sort} onChange={(event) => onChange({ sort: event.target.value })}>
+      <option value="recommended">Recommended</option><option value="price-asc">Price: low to high</option>
+      <option value="price-desc">Price: high to low</option><option value="rating-desc">Guest rating: high to low</option>
+    </select>
+    <div style={{ marginTop: 24 }}><PriceSlider value={[filters.minPrice, filters.maxPrice]} onChange={([minPrice, maxPrice]) => onChange({ minPrice, maxPrice })} /></div>
+    <label htmlFor="hotel-rating">Minimum guest rating</label>
+    <select id="hotel-rating" value={filters.rating} onChange={(event) => onChange({ rating: event.target.value })}>
+      <option value="0">Any rating</option><option value="3">3 and above</option><option value="4">4 and above</option><option value="4.5">4.5 and above</option>
+    </select>
+    <button type="button" style={{ marginTop: 20 }} onClick={() => onChange({ sort: "recommended", minPrice: 0, maxPrice: 50000, rating: 0 })}>Reset filters</button>
+  </aside>;
+}

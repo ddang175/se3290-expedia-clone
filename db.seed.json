@@ -1,193 +1,7 @@
 {
-  "users": [
-    {
-      "number": "8586864566",
-      "user_name": "Arun Kumar",
-      "password": "123456",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 1
-    },
-    {
-      "number": "9289771917",
-      "user_name": "Neha",
-      "password": "123456",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 2
-    },
-    {
-      "number": "9205107244",
-      "user_name": "Anil Kumar",
-      "password": "123456",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 3
-    },
-    {
-      "number": "9289771917",
-      "user_name": "Neha ",
-      "password": "123456",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 4
-    },
-    {
-      "number": "9169235786",
-      "user_name": "Shivam Chaudhary",
-      "password": "1234",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 5
-    },
-    {
-      "number": "8007903757",
-      "user_name": "Sagar Balsaraf",
-      "password": "Saagar@123",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 6
-    },
-    {
-      "number": "9382068271",
-      "user_name": "Kumkum Dutta",
-      "password": "10122002",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 7
-    },
-    {
-      "number": "9764113475",
-      "user_name": "abc",
-      "password": "12345",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 8
-    },
-    {
-      "number": "9467922067",
-      "user_name": "Sarim",
-      "password": "123456",
-      "email": "",
-      "dob": "",
-      "gender": "",
-      "marital_status": null,
-      "id": 9
-    }
-  ],
-  "hotelcart": [
-    {
-      "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201802241526105449-76b20e2613c311e88dbe0a9df65c8753.jpg?&output-quality=75&downsize=583:388&output-format=jpg",
-      "img1": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201802241526105449-76b20e2613c311e88dbe0a9df65c8753.jpg?&output-quality=75&downsize=583:388&output-format=jpg",
-      "img2": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201802241526105449-61fa810213c311e8867a0a9df65c8753.jpg?&output-quality=75&downsize=583:388&crop=583:388;86,0&output-format=jpg",
-      "img3": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201802241526105449-4618b92c13c311e8afa70a9df65c8753.jpg?&output-quality=75&downsize=583:388&output-format=jpg",
-      "img4": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201802241526105449-915d473613c311e8bb7702755708f0b3.jpg?&output-quality=75&downsize=583:388&output-format=jpg",
-      "rating": 3.8,
-      "ratingtext": "Very Good",
-      "ratingcomment": "Based on  Ratings and  reviews",
-      "name": "Octave Studio Hotel",
-      "place": "Koramangala",
-      "description": "Couple Friendly",
-      "additional": "Free Cancellation",
-      "taxes": 291,
-      "price": 2999,
-      "additional2": "",
-      "additional1": "",
-      "id": 1
-    },
-    {
-      "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202203251031111024-2185f03afe8211ecab0a0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;4,0&output-format=jpg",
-      "img1": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202203251031111024-2185f03afe8211ecab0a0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;4,0&output-format=jpg",
-      "img2": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202203251031111024-0989f55cc23d11ec88930a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;24,0&output-format=jpg",
-      "img3": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202203251031111024-1ebdede8c23d11ec89ed0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;103,0&output-format=jpg",
-      "img4": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202203251031111024-3050fcbcc23d11ecad7f0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;42,0&output-format=jpg",
-      "rating": 4.3,
-      "ratingtext": "Excellent",
-      "ratingcomment": "Based on  Ratings and  reviews",
-      "name": "Hilton Bengaluru Embassy Manyata Business Park",
-      "place": "Outer Ring Road",
-      "description": "",
-      "additional": "Free Cancellation till 4 hrs before check in",
-      "taxes": 250,
-      "price": 15558,
-      "additional2": "",
-      "additional1": "",
-      "id": 2
-    }
-  ],
-  "flightcart": [
-    {
-      "airline": "Vistara",
-      "number": "6E 2054",
-      "from": "dELHI",
-      "to": "MUMBAI",
-      "departure": "04:20",
-      "arrival": "07:15",
-      "price": "6999",
-      "totalTime": "02h 55m",
-      "id": 1
-    },
-    {
-      "airline": "Vistara",
-      "number": "6E 2054",
-      "from": "DELHI",
-      "to": "BANGLURU",
-      "departure": "04:20",
-      "arrival": "07:15",
-      "price": "6999",
-      "totalTime": "02h 55m",
-      "id": 6
-    },
-    {
-      "airline": "GoAir",
-      "number": "6E 2054",
-      "from": "DELHI",
-      "to": "MUMBAI",
-      "departure": "06:20",
-      "arrival": "09:15",
-      "price": 7999,
-      "totalTime": "02h 55m",
-      "id": 2
-    },
-    {
-      "airline": "IndiGo",
-      "number": "6E 2054",
-      "from": "DELHI",
-      "to": "MUMBAI",
-      "departure": "02:20",
-      "arrival": "04:15",
-      "price": "5999",
-      "totalTime": "02h 55m",
-      "id": 3
-    },
-    {
-      "airline": "GoAir",
-      "number": "6E 2054",
-      "from": "DELHI",
-      "to": "BANGLURU",
-      "departure": "06:20",
-      "arrival": "09:15",
-      "price": "7999",
-      "totalTime": "02h 55m",
-      "id": 7
-    }
-  ],
+  "users": [],
+  "hotelcart": [],
+  "flightcart": [],
   "flight": [
     {
       "airline": "Vistara",
@@ -642,7 +456,8 @@
       "price": 62,
       "additional2": "Sleeps 1 guest",
       "additional1": "",
-      "id": 12
+      "id": 12,
+      "city": "Bengaluru"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/2c42b2828cd511e99b870242ac110002.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,13&output-format=webp",
@@ -680,7 +495,8 @@
       "price": 1025,
       "additional2": "",
       "additional1": "",
-      "id": 14
+      "id": 14,
+      "city": "Bengaluru"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/67851bd2880d11edace80a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;22,0&output-format=webp",
@@ -851,7 +667,8 @@
       "price": 5099,
       "additional2": "",
       "additional1": "Free Cancellation available at extra charges",
-      "id": 23
+      "id": 23,
+      "city": "Bengaluru"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201912061948304485-e67c5bf821e811ec95bd0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;58,0&output-format=webp",
@@ -908,7 +725,8 @@
       "price": 2999,
       "additional2": "",
       "additional1": "Free Cancellation available at extra charges",
-      "id": 26
+      "id": 26,
+      "city": "Bengaluru"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/9e8c9ad2e74b11ec89170a58a9feac02.jpeg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -1117,7 +935,8 @@
       "price": 4990,
       "additional2": "1 bedroom | Sleeps 2 guests",
       "additional1": "",
-      "id": 38
+      "id": 38,
+      "city": "Bengaluru"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/814a18e8068311e4b12af67d89ce50a3.jpeg?&output-quality=75&downsize=583:388&crop=583:388;0,14&output-format=webp",
@@ -1193,7 +1012,8 @@
       "price": 1300,
       "additional2": "",
       "additional1": "Breakfast Included",
-      "id": 42
+      "id": 42,
+      "city": "Bengaluru"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -1307,7 +1127,8 @@
       "price": 59,
       "additional2": "Sleeps 1 guest",
       "additional1": "",
-      "id": 50
+      "id": 50,
+      "city": "Bengaluru"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -1326,7 +1147,8 @@
       "price": 4499,
       "additional2": "",
       "additional1": "Free Cancellation available at extra charges",
-      "id": 51
+      "id": 51,
+      "city": "Bengaluru"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/e935abd4b23611e9be6b0242ac140005.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -1459,7 +1281,8 @@
       "price": 2900,
       "additional2": "1 bedroom | Sleeps 3 guests",
       "additional1": "",
-      "id": 58
+      "id": 58,
+      "city": "Bengaluru"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -1497,7 +1320,8 @@
       "price": 8499,
       "additional2": "",
       "additional1": "Free Cancellation available at extra charges",
-      "id": 60
+      "id": 60,
+      "city": "Bengaluru"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -1646,7 +1470,8 @@
       "taxes": 499,
       "price": 5301,
       "pc__html 5": "",
-      "id": 70
+      "id": 70,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202201161217331884-80ec744297c411ec851c0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;2,0&output-format=jpg",
@@ -1694,7 +1519,8 @@
       "taxes": 311,
       "price": 1899,
       "pc__html 5": "",
-      "id": 73
+      "id": 73,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201412311314381986-e9bad9f0669311e58aa3daf4768ad8d9.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -1710,7 +1536,8 @@
       "taxes": 479,
       "price": 5920,
       "pc__html 5": "",
-      "id": 74
+      "id": 74,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/3605cb706f1b11eda4560a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,10&output-format=webp",
@@ -1726,7 +1553,8 @@
       "taxes": 151,
       "price": 1084,
       "pc__html 5": "1 bedroom | Sleeps 1 guest",
-      "id": 75
+      "id": 75,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201810121712152116-256f85f6229511ea92020242ac140003.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -1758,7 +1586,8 @@
       "taxes": 595,
       "price": 3670,
       "pc__html 5": "1 bedroom | Sleeps 4 guests",
-      "id": 77
+      "id": 77,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201909231517385885-ca45fcdc9e0c11ec94bb0a58a9feac02.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -1806,7 +1635,8 @@
       "taxes": 444,
       "price": 2899,
       "pc__html 5": "",
-      "id": 80
+      "id": 80,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/078205da479e11eb860a0242ac110003.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,39&output-format=webp",
@@ -1870,7 +1700,8 @@
       "taxes": 524,
       "price": 3699,
       "pc__html 5": "",
-      "id": 85
+      "id": 85,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -1902,7 +1733,8 @@
       "taxes": 518,
       "price": 3500,
       "pc__html 5": "1 bedroom | Sleeps 4 guests",
-      "id": 87
+      "id": 87,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201812141210061300-bbd283cc0f0511ed84a90a58a9feac02.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -1966,7 +1798,8 @@
       "taxes": 241,
       "price": 2882,
       "pc__html 5": "",
-      "id": 91
+      "id": 91,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/c3a95138728011e7b7fa025f77df004f.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -1982,7 +1815,8 @@
       "taxes": 2,
       "price": 21999,
       "pc__html 5": "",
-      "id": 92
+      "id": 92,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/0e7bda32e74c11e891ba0242ac110003.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2030,7 +1864,8 @@
       "taxes": 972,
       "price": 5999,
       "pc__html 5": "",
-      "id": 95
+      "id": 95,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2046,7 +1881,8 @@
       "taxes": 512,
       "price": 5888,
       "pc__html 5": "",
-      "id": 96
+      "id": 96,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/f8a42a5674f811ebb4100242ac110005.png?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2094,7 +1930,8 @@
       "taxes": 72,
       "price": 74,
       "pc__html": 5,
-      "id": 99
+      "id": 99,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/3d09e8f27ff411eaa1080242ac110002.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,26&output-format=webp",
@@ -2110,7 +1947,8 @@
       "taxes": 2,
       "price": 9499,
       "pc__html 5": "",
-      "id": 100
+      "id": 100,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/b681ec1aa38211e98a5e0242ac110003.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2126,7 +1964,8 @@
       "taxes": 404,
       "price": 3095,
       "pc__html 5": "",
-      "id": 101
+      "id": 101,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/d3c9c154073311eda4480a58a9feac02.jpeg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -2142,7 +1981,8 @@
       "taxes": 513,
       "price": 7500,
       "pc__html 5": "",
-      "id": 102
+      "id": 102,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201705020734585069-9124c60eb28211e9be6b0242ac140005.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,243&output-format=webp",
@@ -2206,7 +2046,8 @@
       "taxes": 227,
       "price": 2999,
       "pc__html 5": "",
-      "id": 106
+      "id": 106,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2222,7 +2063,8 @@
       "taxes": 2,
       "price": 13333,
       "pc__html 5": "",
-      "id": 107
+      "id": 107,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2270,7 +2112,8 @@
       "taxes": 483,
       "price": 3699,
       "pc__html 5": "",
-      "id": 110
+      "id": 110,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201801171012588914-b44acc3ce59f11e4978332e76f7e45c9.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,243&output-format=webp",
@@ -2334,7 +2177,8 @@
       "taxes": 1,
       "price": 10999,
       "pc__html 5": "",
-      "id": 114
+      "id": 114,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/b8544488a82a11e886a50224510f5e5b.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2366,7 +2210,8 @@
       "taxes": 452,
       "price": 2599,
       "pc__html 5": "",
-      "id": 116
+      "id": 116,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2382,7 +2227,8 @@
       "taxes": 362,
       "price": 3190,
       "pc__html 5": "",
-      "id": 117
+      "id": 117,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2414,7 +2260,8 @@
       "taxes": 2,
       "price": 12360,
       "pc__html 5": "",
-      "id": 119
+      "id": 119,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2494,7 +2341,8 @@
       "taxes": 278,
       "price": 2000,
       "pc__html 5": "",
-      "id": 124
+      "id": 124,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2574,7 +2422,8 @@
       "taxes": 313,
       "price": 2399,
       "pc__html 5": "",
-      "id": 129
+      "id": 129,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/5a7fa1a8f0ff11e9be600242ac110002.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2638,7 +2487,8 @@
       "taxes": 283,
       "price": 2499,
       "pc__html 5": "",
-      "id": 133
+      "id": 133,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/caed275aef4011e9a5440242ac110002.jfif?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2654,7 +2504,8 @@
       "taxes": 365,
       "price": 2100,
       "pc__html 5": "1 bedroom | Sleeps 3 guests",
-      "id": 134
+      "id": 134,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2686,7 +2537,8 @@
       "taxes": 483,
       "price": 8408,
       "pc__html 5": "",
-      "id": 136
+      "id": 136,
+      "city": "New Delhi"
     },
     {
       "image": "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/defaultbg.png",
@@ -2718,7 +2570,8 @@
       "taxes": 3,
       "price": 14299,
       "pc__html 5": "",
-      "id": 139
+      "id": 139,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/d50f6b628d4111ebb4ed0242ac110002.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2750,7 +2603,8 @@
       "taxes": 522,
       "price": 4999,
       "pc__html 5": "",
-      "id": 141
+      "id": 141,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/89dd2e9a3ef711e8b8380a28dd942738.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,16&output-format=webp",
@@ -2798,7 +2652,8 @@
       "taxes": 216,
       "price": 2499,
       "pc__html 5": "",
-      "id": 144
+      "id": 144,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201801311816553378-b0fddd6088ff11ed82bf0a58a9feac02.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2830,7 +2685,8 @@
       "taxes": 383,
       "price": 2200,
       "pc__html 5": "",
-      "id": 146
+      "id": 146,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/69bd61cc015d11ebb9a70242ac110002.jpeg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2878,7 +2734,8 @@
       "taxes": 271,
       "price": 2599,
       "pc__html 5": "",
-      "id": 149
+      "id": 149,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201007021321155840-6494936c1fb111e9a6760242ac110002.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,1&output-format=webp",
@@ -2894,7 +2751,8 @@
       "taxes": 1,
       "price": 10000,
       "pc__html 5": "",
-      "id": 150
+      "id": 150,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/5b45cc385a3611eb9a130242ac110003.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,97&output-format=webp",
@@ -2910,7 +2768,8 @@
       "taxes": 359,
       "price": 2950,
       "pc__html 5": "",
-      "id": 151
+      "id": 151,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/289ac59447a611e9a3d70242ac110002.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -2974,7 +2833,8 @@
       "taxes": 383,
       "price": 5500,
       "pc__html 5": "",
-      "id": 158
+      "id": 158,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201409252300415821-ea3a6e3a601e11e9923f0242ac110002.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -3006,7 +2866,8 @@
       "taxes": 333,
       "price": 3000,
       "pc__html 5": "",
-      "id": 160
+      "id": 160,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/e772b3b80cca11ed85ba0a58a9feac02.jpg?&output-quality=75&downsize=583:388&output-format=jpg",
@@ -3059,7 +2920,8 @@
       "font16": "₹ 3,162",
       "price": 3800,
       "latoBold 14": "No Cost",
-      "id": 164
+      "id": 164,
+      "city": "New Delhi"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/13c6ca28456311e8bfa00a43569e0366.jfif?&output-quality=75&downsize=583:388&output-format=jpg",
@@ -3080,7 +2942,8 @@
       "font16": "₹ 3,790",
       "price": 5301,
       "latoBold 14": "No Cost",
-      "id": 166
+      "id": 166,
+      "city": "New Delhi"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202201161217331884-80ec744297c411ec851c0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;2,0&output-format=jpg",
@@ -3120,7 +2983,8 @@
       "additional": "RESORT",
       "additional1": "100+ guests like you rated their stay Very Good",
       "price": 14751,
-      "id": 169
+      "id": 169,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/6c712a32ce5011ebaad90242ac11000d.jpg?&output-quality=75&downsize=583:388&output-format=jpg",
@@ -3196,7 +3060,8 @@
       "additional": "| 980 m from Candolim Beach",
       "additional1": "Breakfast Included",
       "price": 9200,
-      "id": 174
+      "id": 174,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/97ad81d2a9be11e89ca00abbd3bca820.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -3234,7 +3099,8 @@
       "additional": "",
       "additional1": "",
       "price": 8880,
-      "id": 177
+      "id": 177,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202103190931209467-42cc0ab88c8c11eb84bf0242ac110004.jpg?&output-quality=75&downsize=583:388&crop=583:388;53,0&output-format=webp",
@@ -3272,7 +3138,8 @@
       "additional": "BEDS IN A HOSTEL",
       "additional1": "Vibrant hostel offering a pool, play area & lounge",
       "price": 2248,
-      "id": 179
+      "id": 179,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/200902181114307770-2b3b4ab6055a11e78a8b0224510f5e5b.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -3367,7 +3234,8 @@
       "additional": "ROOM IN AN APARTMENT",
       "additional1": "",
       "price": 2499,
-      "id": 184
+      "id": 184,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/c77c6f64e97a11eba65a0242ac110003.png?&output-quality=75&downsize=583:388&output-format=webp",
@@ -3424,7 +3292,8 @@
       "additional": "| 1.3 km from Bambolim Beach",
       "additional1": "Breakfast Included",
       "price": 4500,
-      "id": 187
+      "id": 187,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/77eccc3a981111e981de0242ac11000e.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -3557,7 +3426,8 @@
       "additional": "| 4.4 km from Goa International Airport",
       "additional1": "",
       "price": 2200,
-      "id": 194
+      "id": 194,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202202221416265009-b1973b3e0c0611edbff20a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -3595,7 +3465,8 @@
       "additional": "BEDS IN A HOSTEL",
       "additional1": "100% Money Back Guarantee on Clean rooms with TV,AC & Free Wi-Fi",
       "price": 3716,
-      "id": 197
+      "id": 197,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/d924f044e4a811e39a86baaf629e9523.jpeg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -3633,7 +3504,8 @@
       "additional": "| 7.9 km from Goa International Airport",
       "additional1": "",
       "price": 1900,
-      "id": 199
+      "id": 199,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201902160331033950-08b8feeeea1f11eb863f0242ac11000c.jpg?&output-quality=75&downsize=583:388&crop=583:388;128,0&output-format=webp",
@@ -3785,7 +3657,8 @@
       "additional": "BEDS IN A HOSTEL",
       "additional1": "100% Money Back Guarantee on Clean rooms with TV, AC & Free Wi-Fi",
       "price": 2138,
-      "id": 207
+      "id": 207,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201302141837083549-2ccb73aa9fd711e9a00d0242ac110002.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -3804,7 +3677,8 @@
       "additional": "| 1.3 km from Calangute Beach",
       "additional1": "Breakfast Included",
       "price": 14499,
-      "id": 208
+      "id": 208,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/4685aea2765d11e5b9140022195573b9.jfif?&output-quality=75&downsize=583:388&crop=583:388;0,40&output-format=webp",
@@ -3861,7 +3735,8 @@
       "additional": "| 8.0 km from Goa International Airport",
       "additional1": "",
       "price": 4700,
-      "id": 212
+      "id": 212,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202010191345571403-c975223233c911eb984b0242ac110002.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -3899,7 +3774,8 @@
       "additional": "| 7-8 minutes walk from Candolim Beach",
       "additional1": "Breakfast Included",
       "price": 16000,
-      "id": 214
+      "id": 214,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201503121109045576-9da64be89b5411eb88050242ac110002.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -3918,7 +3794,8 @@
       "additional": "| 680 m from Basilica Of Bom Jesus",
       "additional1": "",
       "price": 1400,
-      "id": 215
+      "id": 215,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/82af5d4c3fbb11ebae0f0242ac110002.jfif?&output-quality=75&downsize=583:388&output-format=webp",
@@ -4013,7 +3890,8 @@
       "additional": "",
       "additional1": "",
       "price": 7000,
-      "id": 220
+      "id": 220,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/71de524a8fe311e48cf536cfdd80c293.jfif?&output-quality=75&downsize=583:388&output-format=webp",
@@ -4089,7 +3967,8 @@
       "additional": "| 8.0 km from Goa International Airport",
       "additional1": "",
       "price": 1500,
-      "id": 224
+      "id": 224,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201905301952544998-d70dafca276c11edba120a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -4127,7 +4006,8 @@
       "additional": "| 8.0 km from Goa International Airport",
       "additional1": "",
       "price": 2500,
-      "id": 226
+      "id": 226,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/200902181022218554-149d2e6e0d0911ea99730242ac110002.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -4336,7 +4216,8 @@
       "additional": "| 1.1 km from Candolim Beach",
       "additional1": "Breakfast Included",
       "price": 6299,
-      "id": 237
+      "id": 237,
+      "city": "Goa"
     },
     {
       "image": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202211301504274385-bf801f9c8cce11ed8f980a58a9feac02.jpg?&output-quality=75&downsize=583:388&output-format=webp",
@@ -4374,7 +4255,8 @@
       "additional": "",
       "additional1": "",
       "price": 4700,
-      "id": 239
+      "id": 239,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/82d46994eac811ebbe0c0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -4507,7 +4389,8 @@
       "additional": "| 2.9 km from Candolim Beach",
       "additional1": "",
       "price": 4694,
-      "id": 246
+      "id": 246,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/8605a1d68da811ec97b60a58a9feac02.png?&output-quality=75&downsize=583:388&crop=583:388;0,47&output-format=webp",
@@ -4735,7 +4618,8 @@
       "additional": "",
       "additional1": "Breakfast Included",
       "price": 3000,
-      "id": 259
+      "id": 259,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/3c4a78844d5011eca05c0a58a9feac02.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -4754,7 +4638,8 @@
       "additional": "",
       "additional1": "",
       "price": 5000,
-      "id": 260
+      "id": 260,
+      "city": "Goa"
     },
     {
       "image": "https://r1imghtlak.mmtcdn.com/40948310258a11eb8e060242ac110003.jpg?&output-quality=75&downsize=583:388&crop=583:388;0,24&output-format=webp",
@@ -4820,7 +4705,8 @@
       "price": 6000,
       "description": "Couple Friendly",
       "additional": "5km Away from Intenational Airport of Goa",
-      "id": 264
+      "id": 264,
+      "city": "Goa"
     }
   ],
   "Things_todo": [
@@ -5274,5 +5160,6 @@
       "title": "Ranakpur Jain Temple",
       "price": "3,334"
     }
-  ]
+  ],
+  "bookings": []
 }

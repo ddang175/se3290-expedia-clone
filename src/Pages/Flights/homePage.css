@@ -275,3 +275,18 @@
     width: 20px;
   }
 }
+
+.flight-search-form { margin: 24px auto 40px; width: 90%; border: 1px solid #b8bdc7; border-radius: 8px; padding: 24px; }
+.flight-search-form h2, .flight-catalog h1, .flight-filters h2 { font-size: 22px; font-weight: bold; margin-bottom: 20px; }
+.flight-search-fields { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: flex-end; }
+.flight-search-fields label { display: flex; flex-direction: column; gap: 8px; text-align: left; font-weight: 600; }
+.flight-search-fields input, .flight-search-fields select, .flight-filters select { min-height: 44px; border: 1px solid #b5bac5; border-radius: 6px; padding: 10px; background: white; color: #212121; }
+.flight-search-fields input[type="number"] { width: 100px; }
+.flight-swap { padding: 8px; font-size: 24px; }
+.flight-search-form p[role="alert"] { margin-top: 12px; color: #b42318; }
+.flight-results { width: 90%; margin: 0 auto 40px; display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 24px; align-items: start; }
+.flight-filters { text-align: left; border: 1px solid #ccc; border-radius: 8px; padding: 20px; }
+.flight-filters fieldset { margin: 16px 0 24px; }
+.flight-filters label { display: block; margin: 12px 0; }
+.flight-filters select { display: block; width: 100%; margin: 8px 0 20px; }
+@media (max-width: 768px) { .flight-results { grid-template-columns: 1fr; } .flight-search-fields label { width: 100%; } }

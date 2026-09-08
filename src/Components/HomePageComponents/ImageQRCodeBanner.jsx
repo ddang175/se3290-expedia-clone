@@ -1,48 +1,19 @@
-import React from 'react'
-import { Box, Card, CardBody, Center, Heading, Image, Stack, Text} from '@chakra-ui/react'
-const ImageQRCodeBanner = () => {
-  return (
-    <Center>
-        <Box width={'85%'} border='1px solid #BDBDBD' borderRadius={'7px'}  margin={'auto'} mt={10} >
-        <Card
-        direction={{ base: 'column', sm: 'row' }}
-        overflow='hidden'
-        variant='outline'
-        >
-        <Image
-            objectFit='cover'
-            roundedLeft={'7px'}
-            maxW={{ base: '100%', sm: '300px' }}
-            src='https://a.travel-assets.com/mad-service/footer/bnaBanners/BEX_ROME_iStock_72dpi.jpg'
-            alt='Tourist'
-        />
-
-        <Stack>
-            <CardBody>
-            <Heading pl={3} py='2' fontSize={'3xl'} fontWeight='semibold' textAlign={'left'}>Go with the Chalo Ghume App</Heading>
-
-            <Text pl={3} py='2' textAlign={'left'} >
-            Save even more - get up to 20% on select hotels and earn double the points when you book on the app. Our app deals help you to save on trips so you can travel more and manage it all on the go.
-            </Text>
-
-            <Text pl={3} py='2' textAlign={'left'} fontWeight={'bold'} color={"gray.700"} >
-                Scan the QR code with your device camera and download our app
-            </Text>
-            </CardBody>
-
-
+import { Box, Button, Card, CardBody, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+export default function WebBookingBanner() {
+  return <Box width="85%" border="1px solid #BDBDBD" borderRadius="7px" margin="auto" mt={10}>
+    <Card direction={{ base: "column", md: "row" }} overflow="hidden" variant="outline">
+      <Image objectFit="cover" width={{ base: "100%", md: "35%" }} maxHeight={{ base: "240px", md: "none" }}
+        src="https://a.travel-assets.com/mad-service/footer/bnaBanners/BEX_ROME_iStock_72dpi.jpg" alt="Traveler exploring a city" />
+      <CardBody p={{ base: 5, md: 7 }} textAlign="left">
+        <Heading fontSize={{ base: "2xl", md: "3xl" }} fontWeight="semibold">Your trip, all in one place</Heading>
+        <Text py={4}>Compare stays and flights, choose your travel dates, and review the price before booking.</Text>
+        <Text pb={5}>Sign in to keep your confirmation details in Trips and cancel a booking when your plans change.</Text>
+        <Stack direction={{ base: "column", sm: "row" }} spacing={3}>
+          <Button as={RouterLink} to="/stay" colorScheme="blue">Browse stays</Button>
+          <Button as={RouterLink} to="/trips" variant="outline" colorScheme="blue">View my trips</Button>
         </Stack>
-        <Image
-            objectFit='cover'
-            p={5}
-            maxW={{ base: '100%', sm: '200px' }}
-            src='https://a.travel-assets.com/mad-service/qr-code/footer_qr_hp/BEX-HP-CONTROL-27.png'
-            alt='Caffe Latte'
-        />
-        </Card>
-        </Box>
-        </Center>
-  )
+      </CardBody>
+    </Card>
+  </Box>;
 }
-
-export default ImageQRCodeBanner

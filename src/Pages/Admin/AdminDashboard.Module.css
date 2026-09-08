@@ -73,6 +73,17 @@
 
 }
 
+.mainAdminLandingpage .adminDashboardFeedback { padding: 0 40px 12px; }
+.mainAdminLandingpage .adminDashboardFeedback button { padding: 8px 12px; background: royalblue; color: white; margin-top: 8px; }
+.mainAdminLandingpage .adminDashboardFeedback button:disabled { opacity: 0.6; cursor: wait; }
+
+@media (max-width: 700px) {
+  .mainAdminLandingpage { flex-direction: column; }
+  .mainAdminLandingpage > .adminSideBr { width: 100%; height: auto; flex-direction: row; flex-wrap: wrap; padding: 16px; }
+  .mainAdminLandingpage > .mainBox > .DataBoxes { grid-template-columns: 1fr; padding: 12px; }
+  .mainAdminLandingpage .adminDashboardFeedback { padding: 12px; }
+}
+
 .mainAdminLandingpage > .mainBox > .DataBoxes > .dataBx:nth-child(1) {
   background: #ff004f;
 }
@@ -100,5 +111,4 @@
   margin: auto;
   border-radius: 10px;
 }
-
 

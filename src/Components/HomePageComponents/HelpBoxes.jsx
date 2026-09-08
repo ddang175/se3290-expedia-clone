@@ -1,45 +1,20 @@
-import React from 'react'
-import { Box, Heading, HStack, SimpleGrid,Text ,Icon} from '@chakra-ui/react'
-import {BsPencilFill} from 'react-icons/bs'
-import {RiMessage2Fill} from 'react-icons/ri'
-import {HiCurrencyDollar} from 'react-icons/hi'
-const HelpBoxes = () => {
-  return (
-    <Box width={'85%'} m={'auto'} mt={10} >
-            <Heading fontSize={'3xl'} fontWeight='semibold' textAlign={'left'} >
-                Here to help keep you on the move
-            </Heading>
-            {/* <Flex>
-                <Box border='1px solid gray' rounded='7px' mt={4} >
-                    <Heading textAlign={'left'} p={3} pb={1} fontSize='20px' >Change or cancel a trip</Heading>
-                    <Heading textAlign={'left'} p={3} pt={1} fontSize='12px' >Make update to your itenerary or cancel a booking</Heading>
-                </Box>
-            </Flex> */}
-            <SimpleGrid gridTemplateColumns={{base:'repeat(1,1fr)',sm:'repeat(3,1fr)'}} columnGap={4} >
-                <Box border='1px solid #E0E0E0' rounded='7px' mt={4} >
-                    <HStack justifyContent={'space-between'} pr={2} >
-                    <Heading textAlign={'left'} p={3} pb={1} fontSize='20px' >Change or cancel a trip</Heading>
-                    <Icon as={BsPencilFill}  />
-                    </HStack>
-                    <Text textAlign={'left'} p={3} pt={1} color='#616161' fontSize='12px' >Make update to your itenerary or cancel a booking</Text>
-                </Box>
-                <Box border='1px solid #E0E0E0' rounded='7px' mt={4} >
-                    <HStack justifyContent={'space-between'} pr={2} >
-                    <Heading textAlign={'left'} p={3} pb={1} fontSize='20px' >Use a Credit or Coupan</Heading>
-                    <Icon as={HiCurrencyDollar}  />
-                    </HStack>
-                    <Text textAlign={'left'} p={3} pt={1} color='#616161' fontSize='12px' >Apply a coupan code or credit a new trip</Text>
-                </Box>
-                <Box border='1px solid #E0E0E0' rounded='7px' mt={4} >
-                    <HStack justifyContent={'space-between'} pr={2} >
-                    <Heading textAlign={'left'} p={3} pb={1} fontSize='20px' >Track your Refund</Heading>
-                    <Icon as={RiMessage2Fill}  />
-                    </HStack>
-                    <Text textAlign={'left'} p={3} pt={1} color='#616161' fontSize='12px' >Check a process of refund currently progress</Text>
-                </Box>
-            </SimpleGrid>
-        </Box>
-  )
+import { Box, Heading, HStack, SimpleGrid, Text, Icon, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+import { BsPencilFill, BsBuilding } from "react-icons/bs";
+import { RiMapPinLine } from "react-icons/ri";
+const cards = [
+  { title: "Find your next stay", text: "Search by property or area, then compare prices and guest ratings.", to: "/stay", icon: BsBuilding },
+  { title: "View or cancel a booking", text: "Open Trips to see confirmation details and cancel a reservation.", to: "/trips", icon: BsPencilFill },
+  { title: "Explore things to do", text: "Find tours and attractions by destination or activity name.", to: "/ThingsToDo", icon: RiMapPinLine },
+];
+export default function HelpBoxes() {
+  return <Box width="85%" margin="auto" mt={10}>
+    <Heading fontSize={{ base: "2xl", md: "3xl" }} fontWeight="semibold" textAlign="left">Here to help keep you on the move</Heading>
+    <SimpleGrid columns={{ base: 1, md: 3 }} gap={4} mt={4}>
+      {cards.map(({ title, text, to, icon }) => <LinkBox key={to} border="1px solid #E0E0E0" rounded="7px" p={4} _hover={{ boxShadow: "md" }}>
+        <HStack justifyContent="space-between" alignItems="start" gap={3}><Heading textAlign="left" fontSize="20px"><LinkOverlay as={RouterLink} to={to}>{title}</LinkOverlay></Heading><Icon as={icon} flexShrink={0} mt={1} /></HStack>
+        <Text mt={3} textAlign="left" color="gray.500" fontSize="sm">{text}</Text>
+      </LinkBox>)}
+    </SimpleGrid>
+  </Box>;
 }
-
-export default HelpBoxes

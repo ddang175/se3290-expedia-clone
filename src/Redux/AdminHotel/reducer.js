@@ -1,44 +1,26 @@
 import {
-  HOTEL_FAILURE,
-  HOTEL_REQUEST,
-  GET_HOTEL_SUCCESS,
-  POST_HOTEL_SUCCESS,
-  NEW_GET_HOTELS_SUCCESS,
-  DELETE_HOTEL,
+  HOTEL_REQUEST, HOTEL_FAILURE, GET_HOTEL_SUCCESS,
+  POST_HOTEL_SUCCESS, NEW_GET_HOTELS_SUCCESS, DELETE_HOTEL,
 } from "./actionType";
 
-const initialState = {
-  data: [],
-  isLoading: false,
-  isError: false,
-};
+const initialState = { data: [], hotel: null, isLoading: false, isError: false, error: "" };
 
 export const HotelReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case HOTEL_REQUEST:
-      return { ...state, isLoading: true };
-
+      return { ...state, isLoading: true, isError: false, error: "" };
     case HOTEL_FAILURE:
-      return { ...state, isError: true };
-
+      return { ...state, isLoading: false, isError: true, error: payload };
     case GET_HOTEL_SUCCESS:
-      return { ...state, isLoading: false, flight: payload };
-
     case POST_HOTEL_SUCCESS:
-      return { ...state, isLoading: false, flight: payload };
-
+      return { ...state, isLoading: false, isError: false, error: "", hotel: payload };
     case NEW_GET_HOTELS_SUCCESS:
+      return { ...state, isLoading: false, isError: false, error: "", data: payload };
+    case DELETE_HOTEL:
       return {
-        ...state,
-        isLoading: (state.isLoading = false),
-        data: (state.data = payload),
+        ...state, isLoading: false, isError: false, error: "",
+        data: state.data.filter((item) => String(item.id) !== String(payload)),
       };
-
-    case DELETE_HOTEL: {
-      const filterFlight = state.data.filter((ele) => ele.id !== payload);
-      return { ...state, data: filterFlight };
-    }
-
     default:
       return state;
   }

@@ -19,7 +19,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   color: white;
   border-radius: 10px;
-  backdrop-filter: blue(5px);
+  backdrop-filter: blur(5px);
   border: 1px solid white;
   margin: auto;
 }
@@ -108,4 +108,24 @@
 .adminFlightMai > .adminSideBr{
   width: 15%;
   font-size: larger;
+}
+
+.adminFlightMai .adminFeedback {
+  padding: 12px;
+  margin: 8px 0;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 4px;
+}
+
+.adminFlightMai .adminFeedback a { text-decoration: underline; }
+.adminFlightMai button:disabled { opacity: 0.6; cursor: wait; }
+.adminFlightMai input:focus-visible { outline: 2px solid #ffbd54; outline-offset: 2px; }
+
+@media (max-width: 700px) {
+  .adminFlightMai { flex-direction: column; }
+  .adminFlightMai > .adminSideBr { position: relative; width: 100%; height: auto; flex-direction: row; flex-wrap: wrap; padding: 16px; font-size: 14px; }
+  .adminFlightMai > .adminFlightBox { width: 96%; padding: 12px; transform: none; margin: 12px auto; }
+  .adminFlightMai > .adminFlightBox > .adminFlightInputs form > .adminFlightInputBx { flex-wrap: wrap; }
+  .adminFlightMai > .adminFlightBox > .adminFlightInputs form > .adminFlightInputBx > label,
+  .adminFlightMai > .adminFlightBox > .adminFlightInputs form > .adminFlightInputBx > input { width: 100%; }
 }

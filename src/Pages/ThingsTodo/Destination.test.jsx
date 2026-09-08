@@ -1,0 +1,20 @@
+import { fireEvent, render, screen } from "@testing-library/react";
+import { ChakraProvider } from "@chakra-ui/react";
+import { MemoryRouter } from "react-router-dom";
+import axios from "axios";
+import { Destination } from "./Destination";
+jest.mock("axios", () => ({ get: jest.fn() }));
+const data = [{ id: 1, title: "Kolkata Walking Tour", place: "kolkata", price: "₹100", rating: "7" }, { id: 2, title: "Delhi Museum", place: "delhi", price: "₹200", rating: "8" }];
+test("changing activity destination updates results and clearing it restores all activities", async () => {
+  axios.get.mockResolvedValue({ data });
+  render(<ChakraProvider><MemoryRouter initialEntries={["/ThingsToDo?place=kolkata"]}><Destination /></MemoryRouter></ChakraProvider>);
+  expect(await screen.findByText("Kolkata Walking Tour")).toBeInTheDocument();
+  expect(screen.queryByText("Delhi Museum")).not.toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText("Destination"), { target: { value: "delhi" } });
+  fireEvent.click(screen.getByRole("button", { name: "Search" }));
+  expect(await screen.findByText("Delhi Museum")).toBeInTheDocument();
+  expect(screen.queryByText("Kolkata Walking Tour")).not.toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText("Destination"), { target: { value: "" } });
+  fireEvent.click(screen.getByRole("button", { name: "Search" }));
+  await screen.findByText("2 activities found");
+});
