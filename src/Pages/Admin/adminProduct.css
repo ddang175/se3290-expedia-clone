@@ -134,3 +134,19 @@
   padding: 5px 10px;
   color: white;
 }
+
+.adminProductMain .adminEditLink { background: royalblue; color: white; padding: 5px 10px; }
+.adminProductMain .adminListFeedback { padding: 10px; }
+.adminProductMain .adminListFeedback button { text-decoration: underline; margin-left: 8px; }
+.adminProductMain .adminHotelName { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block !important; }
+.adminProductMain button:disabled { opacity: 0.6; cursor: wait; }
+.adminProductMain .filterProdcut { flex-wrap: wrap; }
+.adminProductMain .filterProdcut input:focus-visible { outline: 2px solid royalblue; outline-offset: 2px; }
+
+@media (max-width: 700px) {
+  .adminProductMain { flex-direction: column; }
+  .adminProductMain > .adminSideBr { position: relative; width: 100%; flex-direction: row; flex-wrap: wrap; padding: 16px; }
+  .adminProductMain > .adminProductbox { width: 100%; height: auto; min-height: 500px; }
+  .adminProductMain > .adminProductbox > .adminProductlist { flex-wrap: wrap; gap: 12px; padding: 12px; }
+  .adminProductMain > .adminProductbox > .filterProdcut > input { width: 100%; }
+}

@@ -1,14 +1,3 @@
-import React from 'react'
-import Flights from './Flight'
-import SideBar from './SideBar'
-
-const FlightData = () => {
-  return (
-    <div>
-            <Flights/>
-            <SideBar/>
-    </div>
-  )
-}
-
-export default FlightData
+import Flights from "./Flight";
+import SideBar from "./SideBar";
+export default function FlightData() { return <><Flights /><SideBar /></>; }

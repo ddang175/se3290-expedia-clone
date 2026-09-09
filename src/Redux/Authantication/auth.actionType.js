@@ -9,5 +9,6 @@ export const REGISTER_ERROR = "REGISTER_ERROR";
 
 
 export const GET_USERS = 'GET_USERS'
+export const GET_USERS_REQUEST = 'GET_USERS_REQUEST'
+export const GET_USERS_ERROR = 'GET_USERS_ERROR'
 export const LOGOUT_USER = 'LOGOUT_USER'
-

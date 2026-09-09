@@ -1,100 +1,48 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DeleteHotel, fetchingHotels } from "../../Redux/StayReducer/action";
-import "./StayData.css";
-import PriceFilter from "./PriceFilter";
+import { Link, useSearchParams } from "react-router-dom";
+import { fetchingHotels } from "../../Redux/StayReducer/action";
 import Sidebar from "./Sidebar";
 import Pagination from "./Pagination";
-
-const StayData = () => {
+import Stay from "./Stay";
+import { filterHotels } from "./catalog";
+import "./StayData.css";
+export default function StayData() {
   const dispatch = useDispatch();
-  const { data } = useSelector((store) => store.StayReducer);
-  const checkInDate = useSelector((state) => state.StayReducer.checkInDate);
-  const checkOutDate = useSelector((state) => state.StayReducer.checkOutDate);
-  const selectedCity = useSelector((state) => state.StayReducer.selectedCity);
-  console.log("city",selectedCity);
-  console.log("In", checkInDate);
-  console.log("out", checkOutDate);
-  const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]);
-  const [filteredHotel, setFilteredHotel] = useState([]);
-  const [price, setPrice] = useState(""); // Define price state variable
-
-  //Pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalNumOfPages = Math.ceil(244 / 20); 
-
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+  const { data, isLoading, isError, error } = useSelector((store) => store.StayReducer);
+  const [params, setParams] = useSearchParams();
+  const filters = { destination: params.get("destination") || "", sort: params.get("sort") || "recommended", minPrice: Number(params.get("minPrice") || 0), maxPrice: Number(params.get("maxPrice") || 50000), rating: Number(params.get("rating") || 0) };
+  const filtered = filterHotels(data, filters);
+  const totalPages = Math.ceil(filtered.length / 12);
+  const currentPage = Math.min(Math.max(1, Number(params.get("page")) || 1), totalPages || 1);
+  useEffect(() => { dispatch(fetchingHotels()); }, [dispatch]);
+  const changeFilters = (changes) => {
+    const next = new URLSearchParams(params); Object.entries(changes).forEach(([key, value]) => next.set(key, String(value)));
+    next.delete("page"); setParams(next);
   };
-
-  const handleLeft = (id) => {
-    dispatch(DeleteHotel(id));
+  const changePage = (page) => { const next = new URLSearchParams(params); next.set("page", page); setParams(next); };
+  const bookingLink = (hotel) => {
+    const query = new URLSearchParams({ type: "hotel", id: hotel.id, guests: params.get("guests") || "1" });
+    ["checkIn", "checkOut"].forEach((key) => { if (params.get(key)) query.set(key, params.get(key)); }); return `/checkout?${query}`;
   };
-
-  // useEffect(() => {
-  //   dispatch(fetchingHotels("","",""));
-  // }, [dispatch]);
-
-  useEffect(() => {
-    if (data) {
-      setFilteredHotel(
-        data.filter(
-          (hotel) =>
-            hotel.price >= selectedPriceRange[0] &&
-            hotel.price <= selectedPriceRange[1]
-        )
-      );
-      console.log(filteredHotel);
-    }
-  }, [data, selectedPriceRange]);
-
-console.log(data)
-  return (
-    <div className="stay-data">
-      
-      <div className="sidebar-container">
-        <Sidebar/>
-      </div>
-
-      {filteredHotel?.map((hotel) => (
-        <div className="stay-card" key={hotel.id}>
-          <img src={hotel.image} alt="hotel" />
-
-          <div className="stay-info">
-            <div className="stay-header">
-              <h3 className="stay-name">{hotel.name}</h3>
-              <button
-                className="stay-left-btn"
-                onClick={() => handleLeft(hotel.id)}
-              >
-                We have 5 left
-              </button>
-            </div>
-            <p className="stay-location">{hotel.location}</p>
-            <p className="stay-description">{hotel.description}</p>
-            <div className="stay-details">
-              <div className="stay-price">
-                <span>Price:</span>
-                <p>₹{hotel.price.toLocaleString()}</p>
-              </div>
-              <div className="stay-rating">
-                <span>Rating:</span>
-                <p>{hotel.rating ? hotel.rating : 1}</p>
-              </div>
-            </div>
-          </div>
+  return <section className="stay-results"><Stay /><div className="stay-data">
+    <div className="sidebar-container"><Sidebar filters={filters} onChange={changeFilters} /></div>
+    <div className="stay-catalog">
+      <h1 style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20 }}>{filters.destination ? `Stays matching ${filters.destination}` : "Find your next stay"}</h1>
+      {isLoading && <p role="status">Loading hotels…</p>}
+      {isError && <div role="alert"><p>{error || "Unable to load hotels."}</p><button onClick={() => dispatch(fetchingHotels())}>Try again</button></div>}
+      {!isLoading && !isError && <p role="status">{filtered.length} properties found</p>}
+      {!isLoading && !isError && filtered.length === 0 && <p>No properties match your search. Try another destination or reset your filters.</p>}
+      {!isLoading && filtered.slice((currentPage - 1) * 12, currentPage * 12).map((hotel) => <article className="stay-card" key={hotel.id}>
+        <img src={hotel.image} alt={hotel.name || "Hotel"} loading="lazy" />
+        <div className="stay-info"><div className="stay-header"><h2 className="stay-name">{hotel.name}</h2></div>
+          <p className="stay-location">{[hotel.place || hotel.location, hotel.city].filter(Boolean).join(", ")}</p>
+          <p className="stay-description">{hotel.description}</p>
+          <div className="stay-details"><div className="stay-price"><span>Per night</span><p>₹{Number(hotel.price).toLocaleString("en-IN")}</p></div>
+            <div className="stay-rating"><span>Guest rating</span><p>{hotel.rating || "Unrated"}</p></div>
+          </div><Link className="stay-book-btn" to={bookingLink(hotel)}>Book Now</Link>
         </div>
-      ))}
-      <div>
-      <Pagination
-        current={currentPage}
-        onChange={handlePageChange}
-        total={totalNumOfPages}
-      />
-      </div>
-    </div>
-  );
-};
-
-export default StayData;
+      </article>)}
+      <Pagination current={currentPage} onChange={changePage} total={totalPages} />
+    </div></div></section>;
+}

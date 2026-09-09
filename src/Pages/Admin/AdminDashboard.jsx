@@ -1,124 +1,64 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-// import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchFlightProducts } from "../../Redux/AdminFlights/action";
+import { API_BASE_URL } from "../../baseurl";
+import AdminSidebar from "./AdminSidebar";
 import "./AdminDashboard.Module.css";
 
+const cards = [
+  { resource: "hotel", title: "Total Hotels", path: "/admin/hotels" },
+  { resource: "flight", title: "Total Flights", path: "/admin/products" },
+  { resource: "users", title: "Total Users", detail: "Registered accounts" },
+  { resource: "giftcards", title: "Gift Cards", detail: "Catalog records" },
+  { resource: "Things_todo", title: "Activities Available", path: "/ThingsToDo" },
+];
 
 export const AdminDashboard = () => {
-  const dispatch = useDispatch();
-  const [flight, setFlight] = useState(0);
-  const [hotel, setHotel] = useState(0);
-  const [users, setUsers] = useState(0);
-  const [giftCard, setGiftCard] = useState(0);
-  const [things, setThings] = useState(0);
- const [loading, setLoading] = useState(false);
-
-  const getHotel = () => {
-    setLoading(true);
-    axios
-      .get("http://localhost:8080/flight")
-      .then((res) => {
-        setFlight(res.data.length);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    //
-    axios
-      .get("http://localhost:8080/hotel")
-      .then((res) => {
-        setHotel(res.data.length);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    //
-    axios
-      .get("http://localhost:8080/users")
-      .then((res) => {
-        setUsers(res.data.length);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-      axios
-      .get("http://localhost:8080/giftcards")
-      .then((res) => {
-        setGiftCard(res.data.length);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    
-      axios
-      .get("http://localhost:8080/Things_todo")
-      .then((res) => {
-        setThings(res.data.length);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    
-    
-  };
+  const [counts, setCounts] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
-    getHotel();
-  }, []);
+    let active = true;
+    setLoading(true);
+    setError("");
+    Promise.all(cards.map(async ({ resource }) => {
+      const { data } = await axios.get(`${API_BASE_URL}/${resource}`);
+      return [resource, data.length];
+    })).then((entries) => {
+      if (active) setCounts(Object.fromEntries(entries));
+    }).catch(() => {
+      if (active) {
+        setCounts(null);
+        setError("Could not load dashboard counts. Check the data server and try again.");
+      }
+    }).finally(() => {
+      if (active) setLoading(false);
+    });
+    return () => { active = false; };
+  }, [refresh]);
 
   return (
-    <>
-      <div className="mainAdminLandingpage">
-        <div className="adminSideBr">
-          <h1><Link to={"/admin"}>Home</Link></h1>
-          <h1><Link to={"/admin/adminflight"}>Add Flight</Link></h1>
-          <h1><Link to={"/admin/adminstay"}>Add Stays</Link></h1>
-          <h1><Link to={"/admin/products"}>All Flights</Link></h1>
-          <h1><Link to={"/admin/hotels"}>All Hotels</Link></h1>
-          <h1><Link to={"/"}>Log out</Link></h1>
+    <div className="mainAdminLandingpage">
+      <AdminSidebar />
+      <div className="mainBox">
+        <div className="mainBoxHead"><h1>Admin Dashboard</h1><hr /></div>
+        <div className="adminDashboardFeedback">
+          {loading && <p role="status">Loading dashboard...</p>}
+          {error && <p role="alert">{error}</p>}
+          <button onClick={() => setRefresh((value) => value + 1)} disabled={loading}>{error ? "Retry" : "Refresh counts"}</button>
         </div>
-        <div className="mainBox">
-          <div className="mainBoxHead">
-            <h1>Admin Dashboard</h1>
-            <hr />
-            <hr />
-            <hr />
-          </div>
-          <div className="DataBoxes">
-            {/*  */}
-            <div className="dataBx">
-              <h1>Total Hotel</h1>
-              {<h1>{hotel}</h1>}
-              <Link to="/admin/hotels">View</Link>
+        <div className="DataBoxes">
+          {cards.map(({ resource, title, path, detail }) => (
+            <div className="dataBx" key={resource}>
+              <h1>{title}</h1>
+              <h1>{counts?.[resource] ?? "—"}</h1>
+              {path ? <Link to={path}>View</Link> : <p>{detail}</p>}
             </div>
-            <div className="dataBx">
-              <h1>Total Flights</h1>
-              {<h1>{flight}</h1>}
-              <Link to="/admin/flights">View</Link>
-            </div>
-            <div className="dataBx">
-              <h1>Total Users</h1>
-              {<h1>{users}</h1>}
-              <Link to="/admin">View</Link>
-            </div>
-            <div className="dataBx">
-              <h1>Giftcards</h1>
-              {<h1>{giftCard}</h1>}
-              <Link to="/admin/giftcards">View</Link>
-            </div>
-            <div className="dataBx">
-              <h1>Pakages Available</h1>
-              {<h1>{things}</h1>}
-              <Link to="/setThings">View</Link>
-            </div>
-            {/*  */}
-          </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };

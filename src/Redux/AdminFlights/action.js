@@ -1,80 +1,55 @@
 import axios from "axios";
+import { API_BASE_URL } from "../../baseurl";
 import {
-  DELETE_FLIGHTS,
-  FETCH_FLIGHTS,
-  FLIGHT_FAILURE,
-  FLIGHT_REQUEST,
-  GET_FLIGHT_SUCCESS,
-  POST_FLIGHT_SUCCESS,
+  FLIGHT_REQUEST, FLIGHT_FAILURE, GET_FLIGHT_SUCCESS,
+  POST_FLIGHT_SUCCESS, FETCH_FLIGHTS, DELETE_FLIGHTS,
 } from "./actionType";
 
-export const getFlightSuccess = (payload) => {
-  return { type: GET_FLIGHT_SUCCESS, payload };
-};
+export const getFlightSuccess = (payload) => ({ type: GET_FLIGHT_SUCCESS, payload });
+export const postFlightSuccess = (payload) => ({ type: POST_FLIGHT_SUCCESS, payload });
+export const flightRequest = () => ({ type: FLIGHT_REQUEST });
+export const flightFailure = (payload) => ({ type: FLIGHT_FAILURE, payload });
+export const fetch_flights_product = (payload) => ({ type: FETCH_FLIGHTS, payload });
+export const handleDeleteProduct = (payload) => ({ type: DELETE_FLIGHTS, payload });
 
-export const postFlightSuccess = (payload) => {
-  return { type: POST_FLIGHT_SUCCESS };
-};
-
-export const flightRequest = () => {
-  return { type: FLIGHT_REQUEST };
-};
-
-export const flightFailure = () => {
-  return { type: FLIGHT_FAILURE };
-};
-
-//
-export const fetch_flights_product = (payload) => {
-  return { type: FETCH_FLIGHTS, payload };
-};
-//
-export const handleDeleteProduct = (payload) => {
-  return { type: DELETE_FLIGHTS, payload };
-};
-
-export const addFlight = (payload) => (dispatch) => {
+const flightOperation = (request, success, message) => async (dispatch) => {
   dispatch(flightRequest());
-
-  axios
-    .post("http://localhost:8080/flight", payload) // https://makemytrip-api-data.onrender.com/flight
-    .then(() => {
-      dispatch(postFlightSuccess());
-    })
-    .catch((err) => {
-      dispatch(flightFailure());
-    });
-};
-
-//
-export const fetchFlightProducts = (limit) => (dispatch) => {
-  dispatch(flightRequest());
-  axios
-    .get(`http://localhost:8080/flight?_limit=${limit}`)   //https://makemytrip-api-data.onrender.com/flight?_limit=${limit}
-    .then((res) => {
-      dispatch(fetch_flights_product(res.data));
-    })
-    .catch((err) => {
-      dispatch(flightFailure());
-    });
-};
-
-export const DeleteFlightProducts = (deleteId) => async (dispatch) => {
   try {
-    const res = await axios(
-      `http://localhost:8080/flight?${deleteId}`, //https://makemytrip-api-data.onrender.com/flight/${deleteId}
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    let data = await res.json();
-    console.log(data);
-
-    dispatch(handleDeleteProduct(deleteId));
-  } catch (e) {
-    console.log(e);
+    const { data } = await request();
+    dispatch(success(data));
+    return data;
+  } catch (error) {
+    dispatch(flightFailure(message));
+    throw new Error(message);
   }
 };
+
+export const addFlight = (payload) => flightOperation(
+  () => axios.post(`${API_BASE_URL}/flight`, payload),
+  postFlightSuccess,
+  "Could not add the flight. Check the data server and try again."
+);
+
+export const updateFlight = (id, payload) => flightOperation(
+  () => axios.patch(`${API_BASE_URL}/flight/${encodeURIComponent(id)}`, payload),
+  postFlightSuccess,
+  "Could not save the flight. Your changes have been kept; try again."
+);
+
+export const fetchFlightById = (id) => flightOperation(
+  () => axios.get(`${API_BASE_URL}/flight/${encodeURIComponent(id)}`),
+  getFlightSuccess,
+  "Could not load this flight. It may have been removed, or the data server is unavailable."
+);
+
+export const fetchFlightProducts = () => flightOperation(
+  () => axios.get(`${API_BASE_URL}/flight`),
+  fetch_flights_product,
+  "Could not load flights. Check the data server and try again."
+);
+
+export const DeleteFlightProducts = (id) => flightOperation(
+  () => axios.delete(`${API_BASE_URL}/flight/${encodeURIComponent(id)}`),
+  () => handleDeleteProduct(id),
+  "Could not delete the flight. The list has not been changed; try again."
+);
